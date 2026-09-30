@@ -1,0 +1,23 @@
+name: Build Windows Launcher EXE
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Compile C++ Code to EXE
+      run: |
+        g++ main.cpp -o GameLauncher.exe
+
+    - name: Upload Compiled EXE
+      uses: actions/upload-artifact@v3
+      with:
+        name: Windows-Launcher
+        path: GameLauncher.exe
