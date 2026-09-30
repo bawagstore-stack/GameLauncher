@@ -10,14 +10,14 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Compile C++ Code to EXE
       run: |
         g++ main.cpp -o GameLauncher.exe
 
     - name: Upload Compiled EXE
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Windows-Launcher
         path: GameLauncher.exe
